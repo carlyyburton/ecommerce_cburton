@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'net/http'
+require 'json'
+
+api = 'http://makeup-api.herokuapp.com/api/v1/products.json'
+uri = URI(api)
+response = Net::HTTP.get(uri)
+products = JSON.parse(response)
+
+Product.destroy_all
+Category.destroy_all
+
+products.each do |makeup|
+  Product.create!(brand: makeup['brand'],
+                  name: makeup['name'],
+                  description: makeup['description'],
+                  price: makeup['price'],
+                  image: makeup['image_link'])
+
+  Category.create!(name: makeup['product_type'])
+end

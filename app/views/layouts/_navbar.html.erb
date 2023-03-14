@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F8BBD0;">
+  <div class="container-fluid">
+    <h2 class="navbar-text">Makeup and More</h2><br>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <span class="navbar-text"><%= link_to "Products", products_path %></span>
+        </li>
+        <li class="nav-item">
+          <span class="navbar-text">Categories</span>
+        </li>
+        <li class="nav-item">
+          <span class="navbar-text">About Us</span>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <span class="navbar-text">Ready to Checkout?</span>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

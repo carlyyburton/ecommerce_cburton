@@ -16,12 +16,11 @@
 
   <p>
     <strong>Price:</strong>
-    <%= product.price %>
+    $<%= product.price %>
   </p>
 
-  <p>
-    <strong>Image:</strong>
-    <%= product.image %>
+    <p>
+    <%= image_tag product.image, style: 'max-width: 200px' %>
   </p>
 
 </div>
