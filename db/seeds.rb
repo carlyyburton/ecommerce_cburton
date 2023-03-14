@@ -24,5 +24,5 @@ products.each do |makeup|
                   description: makeup['description'],
                   price: makeup['price'],
                   image: makeup['image_link'],
-                  category: Category.where(:name => category.name).first)
+                  category: makeup['product_type'])
 end

@@ -3,10 +3,14 @@
 <h1>Categories</h1>
 
 <div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show products in this category", category %>
-    </p>
-  <% end %>
+  <p>Blush - <%= link_to "Show products in this category", blush_path %></p>
+  <p>Bronzer - <%= link_to "Show products in this category", bronzer_path %></p>
+  <p>Eyebrow - <%= link_to "Show products in this category", eyebrow_path %></p>
+  <p>Eyeliner - <%= link_to "Show products in this category", eyeliner_path %></p>
+  <p>Eyeshadow - <%= link_to "Show products in this category", eyeshadow_path %></p>
+  <p>Foundation - <%= link_to "Show products in this category", foundation_path %></p>
+  <p>Lip Liner - <%= link_to "Show products in this category", lip_liner_path %></p>
+  <p>Lipstick - <%= link_to "Show products in this category", lipstick_path %></p>
+  <p>Mascara - <%= link_to "Show products in this category", mascara_path %></p>
+  <p>Nail Polish - <%= link_to "Show products in this category", nail_polish_path %></p>
 </div>

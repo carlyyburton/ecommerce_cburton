@@ -25,3 +25,10 @@
 .navbar a{
   text-decoration: none;
 }
+
+.categories{
+  text-align: center;
+}
+.categories ul li{
+  list-style: none;
+}
