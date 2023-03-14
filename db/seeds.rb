@@ -17,11 +17,12 @@ Product.destroy_all
 Category.destroy_all
 
 products.each do |makeup|
+  category = Category.find_or_create_by(name: makeup['product_type'])
+
   Product.create!(brand: makeup['brand'],
                   name: makeup['name'],
                   description: makeup['description'],
                   price: makeup['price'],
-                  image: makeup['image_link'])
-
-  Category.create!(name: makeup['product_type'])
+                  image: makeup['image_link'],
+                  category: Category.where(:name => category.name).first)
 end
