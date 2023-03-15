@@ -70,3 +70,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+#PROJECT GEMS
+gem "rubocop"
+gem "rubocop-rails"
+gem "activeadmin", github: "activeadmin/activeadmin"
+gem "devise"
