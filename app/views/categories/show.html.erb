@@ -1,7 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<div class="categories">
+  <%= render @category %>
+  <ul>
+  <% @category.products.each do |product| %>
+    <li><%= link_to product.name, product %></li>
+  <% end %>
+  </ul>
 
-<%= render @category %>
-
-<div>
-  <%= link_to "Back to categories", categories_path %>
+  <div>
+    <%= link_to "Back to categories", categories_path %>
+  </div>
 </div>

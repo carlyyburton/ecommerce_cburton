@@ -1,7 +1,0 @@
-<div class="categories">
-  <ul>
-    <% @products = Product.all.where(category: 'eyeshadow').each do |product| %>
-      <li><%= product.name %> - <%= link_to "Show this product", product %></li>
-    <% end %>
-  </ul>
-</div>

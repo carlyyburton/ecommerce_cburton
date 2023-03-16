@@ -17,13 +17,14 @@ Product.destroy_all
 Category.destroy_all
 
 products.each do |makeup|
-  Category.find_or_create_by(name: makeup["product_type"])
+  category = Category.find_or_create_by(name: makeup["product_type"])
 
   Product.create!(brand:       makeup["brand"],
                   name:        makeup["name"],
                   description: makeup["description"],
                   price:       makeup["price"],
                   image:       makeup["image_link"],
-                  category:    makeup["product_type"])
+                  category:    Category.where(:name => category.name).first)
 end
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

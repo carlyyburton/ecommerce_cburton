@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- .navbar{
+.navbar{
   width: auto;
 }
 
@@ -26,13 +26,27 @@
   text-decoration: none;
 }
 
-.categories{
+.categories, .products{
   text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .categories ul li{
   list-style: none;
 }
 
-body{
-  background-color: #ffdfe8;
+.categories a, .products a{
+  text-decoration: none;
+}
+
+.categories a:hover, .products a:hover{
+  color: blueviolet;
+}
+
+.paginate{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
 }
