@@ -50,3 +50,7 @@
   display: flex;
   justify-content: center;
 }
+
+.results{
+  text-align: center;
+}
