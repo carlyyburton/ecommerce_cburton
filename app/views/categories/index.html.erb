@@ -1,7 +1,7 @@
 <div class="categories">
   <h1>Categories</h1>
 
-  <% @categories.each do |category| %>
+  <% @categories.order("name ASC").each do |category| %>
     <%= render category %>
 
     <p><%= link_to "Show products in this category", category %></p>
