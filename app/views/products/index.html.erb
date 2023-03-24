@@ -1,5 +1,5 @@
 <div class="products">
-<h1>Products</h1>
+  <h2>Products</h2>
 
   <% @products.order("brand ASC").each do |product| %>
     <h4><%= product.brand %>: <%= product.name %></h4>

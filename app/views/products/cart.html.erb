@@ -1,1 +1,15 @@
-<h1>Cart</h1>
+<div class="cart">
+  <h2>Shopping Cart - Subtotal: $<%= cart_total %></h2>
+  <% if @cart.empty? %>
+      <p>No items in cart.</p>
+  <% else %>
+    <ul>
+      <% @cart.each do |product| %>
+        <li><%= link_to product.name %> - $<%= product.price %></li>
+        <li><%= image_tag product.image %></li>
+        <li><%= button_to 'Remove From Cart', remove_from_cart_path(product), method: :delete %></li>
+        <li>&nbsp;</li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

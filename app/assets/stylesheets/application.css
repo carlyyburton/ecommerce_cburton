@@ -54,3 +54,17 @@
 .results{
   text-align: center;
 }
+
+.cart{
+  text-align: center;
+  padding: 5px;
+}
+
+.cart ul li{
+  list-style: none;
+  padding: 5px;
+}
+
+.cart img{
+  max-width: 100px;
+}
