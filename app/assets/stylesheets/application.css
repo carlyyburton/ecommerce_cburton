@@ -37,11 +37,11 @@
   list-style: none;
 }
 
-.categories a, .products a{
+.categories a, .products a, .checkoutLink a{
   text-decoration: none;
 }
 
-.categories a:hover, .products a:hover{
+.categories a:hover, .products a:hover, .checkoutLink a:hover{
   color: blueviolet;
 }
 
@@ -67,4 +67,9 @@
 
 .cart img{
   max-width: 100px;
+}
+
+.checkoutLink{
+  text-align: center;
+  font-size: 1.2em;
 }
