@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :categories
   resources :products
+  resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -12,4 +13,6 @@ Rails.application.routes.draw do
 
   post 'products/add_to_cart/:id', to: 'products#add_to_cart', as: 'add_to_cart'
   delete 'products/remove_from_cart/:id', to: 'products#remove_from_cart', as: 'remove_from_cart'
+
+
 end
