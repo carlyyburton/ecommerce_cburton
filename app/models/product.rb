@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :category
 
-  validates :name, presence: true
+  validates :name, :brand, :price, presence: true
 
   paginates_per 8
 end
