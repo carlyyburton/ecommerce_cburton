@@ -17,13 +17,13 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <% if current_user %>
+        <% if user_signed_in? %>
           <li class="nav-item">
-            <span class="navbar-text"><%= link_to "Log Out", "#" %></span>
+            <span class="navbar-text">Welcome, <%= current_user.email.split('@')[0].capitalize %>!</span>
           </li>
         <% else %>
           <li class="nav-item">
-            <span class="navbar-text"><%= link_to "Log In", "#" %></span>
+            <span class="navbar-text"><%= link_to "Log In", new_user_session_path %></span>
           </li>
         <% end %>
         <li class="nav-item">
