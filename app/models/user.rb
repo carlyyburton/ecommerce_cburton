@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   pay_customer stripe_attributes: :stripe_attributes
+  pay_customer default_payment_processor: :stripe
 
   def stripe_attributes(pay_customer)
     {
