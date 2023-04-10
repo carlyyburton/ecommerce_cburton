@@ -93,3 +93,17 @@
   margin-right: auto;
   max-width: 1000px;
 }
+
+.checkoutForm{
+  text-align: center;
+}
+
+.checkoutButton1, .checkoutButton2{
+  display: inline-block;
+
+}
+
+.buttonContainer{
+  padding-top: 20px;
+  text-align: center;
+}

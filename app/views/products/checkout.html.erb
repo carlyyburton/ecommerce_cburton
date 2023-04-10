@@ -1,2 +1,21 @@
-<h2>Checkout!</h2>
-<h4>Total: $<%= cart_total %></h4>
+<div class="checkoutForm">
+  <h2>Checkout!</h2>
+  <h4>Total: $<%= cart_total %></h4>
+
+  <%= form_for(@user) do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  <% end %>
+</div>
+
+<div class="buttonContainer">
+  <div class="checkoutButton1">
+    <%= button_to "Cancel" %>
+  </div>
+  <div class="checkoutButton2">
+    <%= button_to "Purchase" %>
+  </div>
+</div>
