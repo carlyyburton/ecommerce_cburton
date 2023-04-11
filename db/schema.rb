@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_10_214709) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_11_010250) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -80,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_214709) do
     t.string "province"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "users_id"
+    t.index ["users_id"], name: "index_customers_on_users_id"
   end
 
   create_table "pay_charges", force: :cascade do |t|
@@ -188,7 +190,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_214709) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "city"
     t.string "postal_code"
     t.string "address"
     t.string "first_name"
@@ -199,6 +200,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_10_214709) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "customers", "users", column: "users_id"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"

@@ -1,23 +1,12 @@
 <div class="checkoutForm">
   <h2>Checkout!</h2>
   <h4>Total: $<%= cart_total %></h4>
-
-  <%= form_for @user do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-    <br>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    <br>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <br>
-    <%= f.label :postal_code %>
-    <%= f.text_field :postal_code %>
-
-    <%= f.submit %>
-  <% end %>
-
+  <br>
+  <h4>Shipping Information:</h4>
+    <p>Full Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p>Email: <%= current_user.email %></p>
+    <p>Address: <%= current_user.address %></p>
+    <p>Postal Code: <%= current_user.postal_code %></p>
 </div>
 
 
