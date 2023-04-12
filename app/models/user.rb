@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :province
+  has_many :orders
 
   validates :first_name, :last_name, :address, :postal_code, :city, presence: true
 end
