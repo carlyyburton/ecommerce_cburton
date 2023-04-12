@@ -1,10 +1,17 @@
 <div class="invoice">
-  <h2>Order Confirmed!</h2>
-    <h4>Total: $<%= cart_total %></h4>
-    <br>
-    <h4>Shipping Information:</h4>
-      <p>Full Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
-      <p>Email: <%= current_user.email %></p>
-      <p>Address: <%= current_user.address %></p>
-      <p>Postal Code: <%= current_user.postal_code %></p>
+  <h1>Order Confirmed!</h1>
+  <div class=invoiceBorder>
+    <h4>Shipping To:</h4>
+    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p><%= current_user.address %></p>
+    <p><%= current_user.postal_code %></p>
+    <p><%= current_user.city %>, <%= current_user.province.name %></p>
+    <h4>Items:</h4>
+    <ol>
+      <% @cart.each do |product| %>
+        <li><%= product.name %> - $<%= product.price %></li>
+      <% end %>
+    </ol>
+    <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
+  </div>
 </div>

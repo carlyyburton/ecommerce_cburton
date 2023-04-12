@@ -110,8 +110,33 @@
 .buttonContainer{
   padding-top: 20px;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 .field{
   font-weight: 500;
+}
+
+.cardPayment{
+  text-align: center;
+}
+
+.cardType{
+  display: inline-block;
+  text-align: left;
+}
+
+.invoice{
+  text-align: center;
+}
+
+.invoice ol{
+
+  text-align: left;
+}
+
+.invoiceBorder{
+  padding: 10px;
+  border: 1px solid grey;
+  display: inline-block;
 }

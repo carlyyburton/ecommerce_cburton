@@ -1,8 +1,12 @@
 <div class="checkoutForm">
   <h2>Checkout!</h2>
-  <h4>Total: $<%= cart_total %></h4>
+  <h4>Subtotal: $<%= cart_total %></h4>
+  <h4>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h4>
+  <p>--------------------------</p>
+  <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
+  <p>--------------------------</p>
   <br>
-  <h4>Shipping Information:</h4>
+  <h4>Shipping Information on File:</h4>
     <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
     <p>Email: <%= current_user.email %></p>
     <p>Address: <%= current_user.address %></p>
@@ -10,13 +14,34 @@
     <p>City: <%= current_user.city %></p>
     <p>Province: <%= current_user.province.name %></p>
 </div>
+<div class="cardPayment">
+  <h4>Payment Method:</h4>
+  <%= form_for "payment_type", method: :get do |form| %>
+    <%= form.radio_button :card, "Visa" %> Visa&nbsp;&nbsp;
+    <%= form.radio_button :card, "Mastercard" %> Mastercard&nbsp;&nbsp;
+    <%= form.radio_button :card, "American Express" %> American Express
+    <br>
+    <br>
+    <%= form.label "name" %><br>
+    <%= form.text_field :name %><br>
 
+    <%= form.label "card_number" %><br>
+    <%= form.text_field :card_number %><br>
+
+    <%= form.label "security_code" %><br>
+    <%= form.text_field :security_code %><br>
+
+    <%= form.label "expiration_date" %><br>
+    <%= form.text_field :month %>
+    <%= form.text_field :year %><br>
+  <% end %>
+</div>
 
 <div class="buttonContainer">
   <div class="checkoutButton1">
     <%= button_to "Cancel", cart_path, method: :get %>
   </div>
   <div class="checkoutButton2">
-    <%= button_to "Purchase" %>
+    <%= button_to "Purchase", success_path, method: :get %>
   </div>
 </div>
