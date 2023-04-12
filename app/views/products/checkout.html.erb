@@ -3,10 +3,11 @@
   <h4>Total: $<%= cart_total %></h4>
   <br>
   <h4>Shipping Information:</h4>
-    <p>Full Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
     <p>Email: <%= current_user.email %></p>
     <p>Address: <%= current_user.address %></p>
     <p>Postal Code: <%= current_user.postal_code %></p>
+    <p>Province: <%= current_user.province.name %></p>
 </div>
 
 

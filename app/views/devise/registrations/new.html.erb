@@ -21,6 +21,33 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
+    <br>
+    <h2>Add Your Shipping Information</h2>
+
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %><br />
+      <%= f.text_field :address, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :postal_code %><br />
+      <%= f.text_field :postal_code, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :province_id %><br />
+      <%= f.collection_select :province_id, Province.all, :id, :name, include_blank: true %>
+    </div>
 
     <div class="actions">
       <%= f.submit "Sign up" %>

@@ -54,6 +54,13 @@
       <%= f.text_field :postal_code, autocomplete: :postal_code %>
     </div>
 
+    <div class="field">
+      <%= f.label :province_id %><br />
+      <% @province = Province.all %>
+      <%= f.collection_select :province_id, Province.all, :id, :name, include_blank: true %>
+
+    </div>
+
     <div class="actions">
       <%= f.submit "Update" %>
     </div>
