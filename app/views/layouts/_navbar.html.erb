@@ -19,7 +19,7 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <span class="navbar-text">Welcome, <%= current_user.email.split('@')[0].capitalize %>!</span>
+            <span class="navbar-text">Welcome, <%= current_user.first_name %>!</span>
           </li>
           <li class="nav-item">
             <span class="navbar-text"><%= link_to "Edit Account", edit_user_registration_path %></span>

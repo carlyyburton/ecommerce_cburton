@@ -1,18 +1,17 @@
 <div class="checkoutForm">
   <h2>Checkout!</h2>
-  <h4>Subtotal: $<%= cart_total %></h4>
-  <h4>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h4>
-  <p>--------------------------</p>
+  <h5>Subtotal: $<%= cart_total %></h5>
+  <h5>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h5>
   <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
-  <p>--------------------------</p>
-  <br>
-  <h4>Shipping Information on File:</h4>
-    <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
-    <p>Email: <%= current_user.email %></p>
-    <p>Address: <%= current_user.address %></p>
-    <p>Postal Code: <%= current_user.postal_code %></p>
-    <p>City: <%= current_user.city %></p>
-    <p>Province: <%= current_user.province.name %></p>
+  <p>----------------------------</p>
+  <h4>Shipping Information:</h4>
+  <p>Email: <%= current_user.email %></p>
+  <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+  <p>Address: <%= current_user.address %></p>
+  <p>Postal Code: <%= current_user.postal_code %></p>
+  <p>City: <%= current_user.city %></p>
+  <p>Province: <%= current_user.province.name %></p>
+  <p>----------------------------</p>
 </div>
 <div class="cardPayment">
   <h4>Payment Method:</h4>
@@ -28,12 +27,16 @@
     <%= form.label "card_number" %><br>
     <%= form.text_field :card_number %><br>
 
-    <%= form.label "security_code" %><br>
-    <%= form.text_field :security_code %><br>
-
-    <%= form.label "expiration_date" %><br>
-    <%= form.text_field :month %>
-    <%= form.text_field :year %><br>
+    <div class="expiration">
+      <div class="expirationDate">
+        <%= form.label "expiration" %><br>
+        <%= form.date_select :month, start_year: 2023, order: [:month, :year]  %>
+      </div>
+      <div class="securityCode">
+        <%= form.label "security_code" %>
+        <%= form.text_field :security_code %>
+      </div>
+    </div>
   <% end %>
 </div>
 

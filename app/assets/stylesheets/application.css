@@ -104,7 +104,6 @@
 
 .checkoutButton1, .checkoutButton2{
   display: inline-block;
-
 }
 
 .buttonContainer{
@@ -119,6 +118,9 @@
 
 .cardPayment{
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
 }
 
 .cardType{
@@ -131,12 +133,20 @@
 }
 
 .invoice ol{
-
   text-align: left;
 }
 
 .invoiceBorder{
   padding: 10px;
   border: 1px solid grey;
+  display: inline-block;
+}
+
+.expiration{
+  text-align: center;
+  padding-top: 10px;
+}
+
+.expirationDate, .securityCode{
   display: inline-block;
 }
