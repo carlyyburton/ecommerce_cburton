@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   get "checkout", to: "products#checkout"
   get "success", to: "products#success"
+  get "about", to: "products#about"
 end

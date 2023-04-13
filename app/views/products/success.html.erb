@@ -12,6 +12,12 @@
         <li><%= product.name %> - $<%= product.price %></li>
       <% end %>
     </ol>
+    <p>-----------------------</p>
+    <h5>Subtotal: $<%= cart_total %></h5>
+    <h5>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h5>
     <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
+  </div>
+  <div class="backButton">
+    <%= button_to "Back to Site", destroy_user_session_path, method: :delete %>
   </div>
 </div>

@@ -6,14 +6,18 @@
     <ul>
       <% @cart.each do |product| %>
         <li><%= link_to product.name %> - $<%= product.price %></li>
-        <li><%= image_tag product.image %></li>
+        <li><%= image_tag product.image, alt: "Image of a product." %></li>
         <li><%= button_to 'Remove From Cart', remove_from_cart_path(product), method: :delete %></li>
         <li>&nbsp;</li>
       <% end %>
     </ul>
-    <div class="checkoutLink">
-      <%= link_to "Checkout", checkout_path %>
-    </div>
   <% end %>
+  <div class="checkoutLink">
+  <% if user_signed_in? %>
+    <%= link_to "Checkout", checkout_path %>
+  <% else %>
+    <%= link_to "Please Log In to Checkout", new_user_session_path %>
+  <% end %>
+  </div>
 </div>
 

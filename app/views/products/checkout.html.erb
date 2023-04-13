@@ -15,36 +15,35 @@
 </div>
 <div class="cardPayment">
   <h4>Payment Method:</h4>
-  <%= form_for "payment_type", method: :get do |form| %>
-    <%= form.radio_button :card, "Visa" %> Visa&nbsp;&nbsp;
-    <%= form.radio_button :card, "Mastercard" %> Mastercard&nbsp;&nbsp;
-    <%= form.radio_button :card, "American Express" %> American Express
+  <%= form_tag( { :action => "success", }, { :method => :get }) do %>
+    <%= radio_button(:card, "card", "Visa", :required => true) %> Visa&nbsp;&nbsp;
+    <%= radio_button(:card, "card", "Mastercard") %> Mastercard&nbsp;&nbsp;
+    <%= radio_button(:card, "card", "American Express") %> American Express
     <br>
     <br>
-    <%= form.label "name" %><br>
-    <%= form.text_field :name %><br>
+    <%= label_tag "name" %><br>
+    <%= text_field :name, "name", :required => true %><br>
 
-    <%= form.label "card_number" %><br>
-    <%= form.text_field :card_number %><br>
+    <%= label_tag "card_number_(no_spaces)" %><br>
+    <%= text_field :card_number, "card_number", :required => true, :maxlength => 16, :pattern => "^[0-9]{15}(?:[0-9]{1})?$" %><br>
 
     <div class="expiration">
       <div class="expirationDate">
-        <%= form.label "expiration" %><br>
-        <%= form.date_select :month, start_year: 2023, order: [:month, :year]  %>
+        <%= label_tag "expiration" %><br>
+        <%= date_select :expiration, "expiration", start_year: 2023, order: [:month, :year] %>
       </div>
       <div class="securityCode">
-        <%= form.label "security_code" %>
-        <%= form.text_field :security_code %>
+        <%= label_tag "security_code" %>
+        <%= text_field :security_code, "security_code", :required => true, :maxlength => 3, :pattern => "[0-9][0-9][0-9]" %>
+      </div>
+
+      <div class="actions">
+      <%= submit_tag "Purchase" %>
       </div>
     </div>
   <% end %>
 </div>
-
-<div class="buttonContainer">
-  <div class="checkoutButton1">
-    <%= button_to "Cancel", cart_path, method: :get %>
-  </div>
-  <div class="checkoutButton2">
-    <%= button_to "Purchase", success_path, method: :get %>
-  </div>
+<div class="checkoutCancel">
+  <%= link_to "Go Back to Cart", cart_path, method: :get %>
 </div>
+
