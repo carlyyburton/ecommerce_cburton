@@ -13,8 +13,9 @@
     </ul>
   <% end %>
   <div class="checkoutLink">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && !@cart.empty? %>
     <%= link_to "Checkout", checkout_path %>
+  <% elsif user_signed_in? && @cart.empty? %>
   <% else %>
     <%= link_to "Please Log In to Checkout", new_user_session_path %>
   <% end %>
