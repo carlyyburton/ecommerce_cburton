@@ -1,6 +1,11 @@
 <div id="<%= dom_id product %>">
 
-  <h3><%= product.brand %> - <%= product.name %></h3>
+  <h3><%= product.name %></h3>
+
+  <p>
+    <strong>Brand:</strong>
+    <%= product.brand.capitalize %>
+  </p>
 
   <p>
     <strong>Description:</strong>

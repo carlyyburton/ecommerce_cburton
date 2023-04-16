@@ -2,10 +2,13 @@
   <h1>Checkout!</h1>
   <h5>Subtotal: $<%= cart_total %></h5>
   <h5>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h5>
-  <% unless cart_total >= 50%>
+  <% if cart_total >= 50 %>
+    <h5>Shipping: Free!</h5>
+    <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
+  <% else %>
     <h5>Shipping: $9.99</h5>
+    <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total + 9.99).round(2) %></h4>
   <% end %>
-  <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
   <p>----------------------------</p>
   <h4>Shipping Information:</h4>
   <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>

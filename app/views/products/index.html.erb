@@ -2,11 +2,10 @@
   <h2>Products</h2>
 
   <% @products.order("brand ASC").each do |product| %>
-    <h4><%= product.brand %>: <%= product.name %></h4>
+    <h5><%= product.name %></h5>
     <p>$<%= product.price %></p>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+    <%= image_tag product.image, style: 'max-width: 200px', alt: "Image of a product." %>
+    <p><%= link_to "View Product", product %></p>
   <% end %>
 </div>
 <div class="paginate">
