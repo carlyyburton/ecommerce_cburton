@@ -43,7 +43,7 @@
 }
 
 .categories a:hover, .products a:hover, .checkoutLink a:hover{
-  color: blueviolet;
+  color: rgb(170, 60, 165);
 }
 
 .paginate{
@@ -72,7 +72,8 @@
 
 .checkoutLink{
   text-align: center;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  padding-bottom: 30px;
 }
 
 .notice, .alert{
@@ -149,4 +150,8 @@
 
 .backButton{
   padding-top: 20px;
+}
+
+span{
+  color: rgb(170, 60, 165);
 }

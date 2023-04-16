@@ -1,11 +1,13 @@
 <div class="checkoutForm">
-  <h2>Checkout!</h2>
+  <h1>Checkout!</h1>
   <h5>Subtotal: $<%= cart_total %></h5>
   <h5>Sales Tax: $<%= (current_user.province.tax_rate * cart_total).round(2) %></h5>
+  <% unless cart_total >= 50%>
+    <h5>Shipping: $9.99</h5>
+  <% end %>
   <h4>Total: $<%= ((current_user.province.tax_rate * cart_total) + cart_total).round(2) %></h4>
   <p>----------------------------</p>
   <h4>Shipping Information:</h4>
-  <p>Email: <%= current_user.email %></p>
   <p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
   <p>Address: <%= current_user.address %></p>
   <p>Postal Code: <%= current_user.postal_code %></p>

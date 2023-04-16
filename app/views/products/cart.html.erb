@@ -1,5 +1,8 @@
 <div class="cart">
   <h2>Shopping Cart - Subtotal: $<%= cart_total %></h2>
+  <% unless cart_total >= 50 %>
+    <h5><span>Spend another $<%= (50 - cart_total).round(2) %> for free shipping!</span></h5>
+  <% end %>
   <% if @cart.empty? %>
       <p>No items in cart.</p>
   <% else %>
@@ -14,7 +17,7 @@
   <% end %>
   <div class="checkoutLink">
   <% if user_signed_in? && !@cart.empty? %>
-    <%= link_to "Checkout", checkout_path %>
+    <%= link_to "Checkout!", checkout_path %>
   <% elsif user_signed_in? && @cart.empty? %>
   <% else %>
     <%= link_to "Please Log In to Checkout", new_user_session_path %>
